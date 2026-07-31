@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pavol Just — AI/ML Security Researcher and Founder. Red-teaming, adversarial ML, EU AI Act compliance.">
+  <title>Pavol Just</title>
+  <style>
+    /*
+     * Signature element: section headers prefixed with "//"
+     * Rationale: mirrors the YARA/Python/MITRE comment syntax that runs
+     * through all the work here. Everything is annotated — the site included.
+     * Accent: #5eead4 (teal) — technical without borrowing from terminal-green
+     * clichés; reads clearly at low luminance against #0d0d0d.
+     */
+
+    :root {
+      --bg:      #0d0d0d;
+      --text:    #e8e8e8;
+      --muted:   #888;
+      --accent:  #5eead4;
+      --mono:    'Courier New', Courier, monospace;
+      --sans:    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --max:     660px;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 64px 24px 96px;
+    }
+
+    /* ── Header ── */
+    header {
+      margin-bottom: 56px;
+    }
+
+    h1 {
+      font-family: var(--mono);
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .title {
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-top: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .meta {
+      margin-top: 16px;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .meta a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .meta a:hover,
+    .meta a:focus {
+      color: var(--text);
+      border-bottom-color: var(--accent);
+      outline: none;
+    }
+
+    /* ── Sections ── */
+    section {
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    h2::before {
+      content: '// ';
+      color: var(--accent);
+    }
+
+    /* ── About ── */
+    .about p {
+      font-size: 0.975rem;
+      color: #c8c8c8;
+      max-width: 580px;
+    }
+
+    /* ── Projects ── */
+    .project-list {
+      list-style: none;
+    }
+
+    .project-list li {
+      padding: 16px 0;
+      border-top: 1px solid #1e1e1e;
+    }
+
+    .project-list li:last-child {
+      border-bottom: 1px solid #1e1e1e;
+    }
+
+    .project-name {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .project-name a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .project-name a:hover,
+    .project-name a:focus {
+      border-bottom-color: var(--accent);
+      outline: none;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: #a0a0a0;
+      margin-top: 3px;
+    }
+
+    .tags {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      background: rgba(94, 234, 212, 0.08);
+      border: 1px solid rgba(94, 234, 212, 0.2);
+      padding: 1px 7px;
+      border-radius: 2px;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Skills ── */
+    .skills-line {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      color: #b0b0b0;
+      line-height: 2;
+    }
+
+    .skills-line span {
+      color: var(--muted);
+      margin: 0 4px;
+    }
+
+    /* ── Currently ── */
+    .currently p {
+      font-size: 0.9rem;
+      color: #a8a8a8;
+    }
+
+    .currently strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 480px) {
+      body {
+        padding: 40px 20px 72px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* ── Focus visible for keyboard nav ── */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Pavol Just</h1>
+    <p class="title">AI/ML Security Researcher · Founder</p>
+    <div class="meta">
+      Prague (from Aug 2026)<br>
+      <a href="mailto:pav@outputguard.dev">pav@outputguard.dev</a> ·
+      <a href="https://github.com/pavjstn-ui" target="_blank" rel="noopener">github.com/pavjstn-ui</a>
+    </div>
+  </header>
+
+  <section class="about">
+    <h2>About</h2>
+    <p>
+      I build systems that attack LLMs so defenders know where to stand.
+      My work spans adversarial red-teaming, PII detection, and malware classification —
+      mapped to MITRE ATT&CK and ATLAS, auditable to EU AI Act Article 9.
+      The assumption: if you cannot break it, you cannot trust it.
+    </p>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <ul class="project-list">
+
+      <li>
+        <div class="project-name">OutputGuard</div>
+        <div class="project-desc">LLM output validation and PII detection, compliant with EU AI Act Article 9.</div>
+        <div class="tags">
+          <span class="tag">GCP Cloud Run</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">Supabase</span>
+          <span class="tag">EU AI Act</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="project-name">AIAT</div>
+        <div class="project-desc">Adversarial attacker / judge / target red-team loop over a 1,661-CVE corpus, MITRE ATLAS-mapped.</div>
+        <div class="tags">
+          <span class="tag">LangGraph</span>
+          <span class="tag">LangChain</span>
+          <span class="tag">MITRE ATLAS</span>
+          <span class="tag">Red-team</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="project-name">MalVision</div>
+        <div class="project-desc">ViT-based malware visual detection trained on MalwareBazaar, F1 ≥ 0.85 target.</div>
+        <div class="tags">
+          <span class="tag">PyTorch</span>
+          <span class="tag">ViT</span>
+          <span class="tag">MalwareBazaar</span>
+          <span class="tag">MLflow</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="project-name">llm-guard</div>
+        <div class="project-desc">Prompt injection detection layer — 100% detection rate, MITRE ATT&CK mapped.</div>
+        <div class="tags">
+          <span class="tag">Prompt Injection</span>
+          <span class="tag">MITRE ATT&CK</span>
+          <span class="tag">Python</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="project-name">MCP Scanner</div>
+        <div class="project-desc">Open-source security scanner for MCP servers.</div>
+        <div class="tags">
+          <span class="tag">MCP</span>
+          <span class="tag">Security</span>
+          <span class="tag">Open Source</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="project-name">
+          <a href="https://github.com/pavjstn-ui/white-rabbit" target="_blank" rel="noopener">White Rabbit</a>
+        </div>
+        <div class="project-desc">Research paper: agentic behavioral drift detection. arXiv track.</div>
+        <div class="tags">
+          <span class="tag">Research</span>
+          <span class="tag">Agentic AI</span>
+          <span class="tag">arXiv</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="project-name">Slovak LLM</div>
+        <div class="project-desc">Qwen3-8B fine-tuned for Slovak/Czech with LoRA and an adversarial prompt corpus.</div>
+        <div class="tags">
+          <span class="tag">LoRA</span>
+          <span class="tag">PEFT</span>
+          <span class="tag">Qwen3-8B</span>
+          <span class="tag">Adversarial NLP</span>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skills-line">
+      Python<span>·</span>PyTorch<span>·</span>LangGraph<span>·</span>FastAPI<span>·</span>GCP<span>·</span>Docker<span>·</span>MLflow<span>·</span>YARA<span>·</span>MITRE ATT&amp;CK
+    </div>
+  </section>
+
+  <section class="currently">
+    <h2>Currently</h2>
+    <p>
+      <strong>Building</strong> White Rabbit (arXiv) ·
+      <strong>Relocating</strong> to Prague Aug 2026 ·
+      <strong>Open to</strong> hands-on AI/ML security roles
+    </p>
+  </section>
+
+</body>
+</html>
