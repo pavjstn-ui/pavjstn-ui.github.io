@@ -3,25 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pavol Just — AI/ML Security Researcher and Founder. Red-teaming, adversarial ML, EU AI Act compliance.">
+  <meta name="description" content="Pavol Just — solo developer and ML researcher building AI security tooling and autonomous agent infrastructure.">
   <title>Pavol Just</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /*
-     * Signature element: section headers prefixed with "//"
-     * Rationale: mirrors the YARA/Python/MITRE comment syntax that runs
-     * through all the work here. Everything is annotated — the site included.
-     * Accent: #5eead4 (teal) — technical without borrowing from terminal-green
-     * clichés; reads clearly at low luminance against #0d0d0d.
-     */
-
     :root {
-      --bg:      #0d0d0d;
-      --text:    #e8e8e8;
-      --muted:   #888;
-      --accent:  #5eead4;
-      --mono:    'Courier New', Courier, monospace;
-      --sans:    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --max:     660px;
+      --bg:     #0d0d0f;
+      --text:   #f0f0ee;
+      --muted:  #a0a0a0;
+      --accent: #7b6ff0;
+      --border: #1e1e22;
+      --mono:   'JetBrains Mono', 'Courier New', monospace;
+      --sans:   system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     }
 
     *, *::before, *::after {
@@ -39,68 +34,79 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    body {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 64px 24px 96px;
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 52px;
     }
 
-    /* ── Header ── */
-    header {
-      margin-bottom: 56px;
-    }
-
-    h1 {
+    .nav-name {
       font-family: var(--mono);
-      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-size: 0.88rem;
       font-weight: 700;
-      letter-spacing: -0.5px;
       color: var(--text);
-      line-height: 1.2;
+      text-decoration: none;
+      letter-spacing: -0.2px;
     }
 
-    .title {
-      font-family: var(--mono);
-      font-size: 0.9rem;
-      color: var(--accent);
-      margin-top: 6px;
-      letter-spacing: 0.02em;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 0.82rem;
     }
 
-    .meta {
-      margin-top: 16px;
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.9;
-    }
-
-    .meta a {
+    .nav-links a {
       color: var(--muted);
       text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: color 0.15s, border-color 0.15s;
+      transition: color 0.15s;
     }
 
-    .meta a:hover,
-    .meta a:focus {
-      color: var(--text);
-      border-bottom-color: var(--accent);
-      outline: none;
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--accent);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 32px 96px;
     }
 
     /* ── Sections ── */
     section {
-      margin-bottom: 48px;
+      margin-bottom: 56px;
     }
 
     h2 {
       font-family: var(--mono);
-      font-size: 0.78rem;
+      font-size: 0.74rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       color: var(--muted);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     h2::before {
@@ -112,7 +118,8 @@
     .about p {
       font-size: 0.975rem;
       color: #c8c8c8;
-      max-width: 580px;
+      max-width: 620px;
+      line-height: 1.85;
     }
 
     /* ── Projects ── */
@@ -121,12 +128,12 @@
     }
 
     .project-list li {
-      padding: 16px 0;
-      border-top: 1px solid #1e1e1e;
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
     }
 
     .project-list li:last-child {
-      border-bottom: 1px solid #1e1e1e;
+      border-bottom: 1px solid var(--border);
     }
 
     .project-name {
@@ -134,29 +141,34 @@
       font-weight: 700;
       font-size: 0.95rem;
       color: var(--text);
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
     }
 
-    .project-name a {
-      color: inherit;
+    .project-name .gh-link {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--accent);
       text-decoration: none;
       border-bottom: 1px solid transparent;
       transition: border-color 0.15s;
     }
 
-    .project-name a:hover,
-    .project-name a:focus {
+    .project-name .gh-link:hover {
       border-bottom-color: var(--accent);
-      outline: none;
     }
 
     .project-desc {
       font-size: 0.875rem;
-      color: #a0a0a0;
-      margin-top: 3px;
+      color: var(--muted);
+      margin-top: 4px;
+      max-width: 600px;
     }
 
     .tags {
-      margin-top: 8px;
+      margin-top: 10px;
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
@@ -164,51 +176,130 @@
 
     .tag {
       font-family: var(--mono);
-      font-size: 0.72rem;
+      font-size: 0.69rem;
       color: var(--accent);
-      background: rgba(94, 234, 212, 0.08);
-      border: 1px solid rgba(94, 234, 212, 0.2);
-      padding: 1px 7px;
+      background: rgba(123, 111, 240, 0.07);
+      border: 1px solid rgba(123, 111, 240, 0.22);
+      padding: 2px 8px;
       border-radius: 2px;
       letter-spacing: 0.03em;
     }
 
-    /* ── Skills ── */
-    .skills-line {
+    /* ── Writing ── */
+    .writing-list {
+      list-style: none;
+    }
+
+    .writing-list li {
+      padding: 14px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .writing-list li:last-child {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .writing-title {
       font-family: var(--mono);
-      font-size: 0.85rem;
-      color: #b0b0b0;
-      line-height: 2;
-    }
-
-    .skills-line span {
-      color: var(--muted);
-      margin: 0 4px;
-    }
-
-    /* ── Currently ── */
-    .currently p {
-      font-size: 0.9rem;
-      color: #a8a8a8;
-    }
-
-    .currently strong {
+      font-size: 0.88rem;
       color: var(--text);
-      font-weight: 600;
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .writing-title a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .writing-title a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 0.67rem;
+      color: var(--muted);
+      background: #17171a;
+      border: 1px solid var(--border);
+      padding: 1px 6px;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+    }
+
+    .writing-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .writing-meta a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .writing-meta a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── Contact ── */
+    .contact p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 2.3;
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    .contact a:hover {
+      border-bottom-color: var(--accent);
     }
 
     /* ── Responsive ── */
-    @media (max-width: 480px) {
-      body {
-        padding: 40px 20px 72px;
+    @media (max-width: 720px) {
+      nav {
+        padding: 0 20px;
       }
 
-      h1 {
-        font-size: 1.5rem;
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 52px;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 16px 20px;
+        gap: 14px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      main {
+        padding: 40px 20px 72px;
       }
     }
 
-    /* ── Focus visible for keyboard nav ── */
     :focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 3px;
@@ -217,124 +308,150 @@
 </head>
 <body>
 
-  <header>
-    <h1>Pavol Just</h1>
-    <p class="title">AI/ML Security Researcher · Founder</p>
-    <div class="meta">
-      Prague (from Aug 2026)<br>
-      <a href="mailto:pav@outputguard.dev">pav@outputguard.dev</a> ·
-      <a href="https://github.com/pavjstn-ui" target="_blank" rel="noopener">github.com/pavjstn-ui</a>
-    </div>
-  </header>
+<nav>
+  <a class="nav-name" href="#">Pavol Just</a>
+  <div class="nav-links" id="nav-links">
+    <a href="mailto:pjstn@proton.me">pjstn@proton.me</a>
+    <a href="https://github.com/pavjstn-ui" target="_blank" rel="noopener">github.com/pavjstn-ui</a>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+</nav>
 
-  <section class="about">
+<main>
+
+  <section class="about" id="about">
     <h2>About</h2>
     <p>
-      I build systems that attack LLMs so defenders know where to stand.
-      My work spans adversarial red-teaming, PII detection, and malware classification —
-      mapped to MITRE ATT&CK and ATLAS, auditable to EU AI Act Article 9.
-      The assumption: if you cannot break it, you cannot trust it.
+      Solo developer and ML researcher building AI security tooling and autonomous agent infrastructure.
+      Background in film and international relations; self-taught into ML, arriving somewhere between
+      red-teaming frontier models and engineering the harnesses that run them. Based in Slovakia,
+      relocating to Prague. No PhD — shipped systems instead.
     </p>
   </section>
 
-  <section>
+  <section id="projects">
     <h2>Projects</h2>
     <ul class="project-list">
 
       <li>
         <div class="project-name">OutputGuard</div>
-        <div class="project-desc">LLM output validation and PII detection, compliant with EU AI Act Article 9.</div>
+        <div class="project-desc">Output filtering with EU AI Act Article 9 compliance framing — intercept agent outputs, filter against policy, log evidence artifacts.</div>
         <div class="tags">
-          <span class="tag">GCP Cloud Run</span>
-          <span class="tag">FastAPI</span>
-          <span class="tag">Supabase</span>
+          <span class="tag">AI safety</span>
           <span class="tag">EU AI Act</span>
-        </div>
-      </li>
-
-      <li>
-        <div class="project-name">AIAT</div>
-        <div class="project-desc">Adversarial attacker / judge / target red-team loop over a 1,661-CVE corpus, MITRE ATLAS-mapped.</div>
-        <div class="tags">
-          <span class="tag">LangGraph</span>
-          <span class="tag">LangChain</span>
-          <span class="tag">MITRE ATLAS</span>
-          <span class="tag">Red-team</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">GCP Cloud Run</span>
+          <span class="tag">agent harness</span>
         </div>
       </li>
 
       <li>
         <div class="project-name">MalVision</div>
-        <div class="project-desc">ViT-based malware visual detection trained on MalwareBazaar, F1 ≥ 0.85 target.</div>
+        <div class="project-desc">Malware classifier deployed as a live API — static analysis features to confidence score, YARA-as-a-service endpoint, serverless on Cloud Run.</div>
         <div class="tags">
-          <span class="tag">PyTorch</span>
-          <span class="tag">ViT</span>
-          <span class="tag">MalwareBazaar</span>
+          <span class="tag">GCP Cloud Run</span>
+          <span class="tag">FastAPI</span>
           <span class="tag">MLflow</span>
+          <span class="tag">ML deployment</span>
+          <span class="tag">YARA</span>
         </div>
       </li>
 
       <li>
-        <div class="project-name">llm-guard</div>
-        <div class="project-desc">Prompt injection detection layer — 100% detection rate, MITRE ATT&CK mapped.</div>
+        <div class="project-name">CascadeBench</div>
+        <div class="project-desc">Measures how prompt injection compounds across multi-turn agent trajectories — inject at step N, measure corruption propagation through S1→S4.</div>
         <div class="tags">
-          <span class="tag">Prompt Injection</span>
-          <span class="tag">MITRE ATT&CK</span>
+          <span class="tag">adversarial ML</span>
+          <span class="tag">benchmark design</span>
+          <span class="tag">security research</span>
+          <span class="tag">LLM eval</span>
+        </div>
+      </li>
+
+      <li>
+        <div class="project-name">RefusalGap</div>
+        <div class="project-desc">Measures how often frontier LLMs refuse legitimate defensive security tasks — automated API caller, MalVision as reference classifier, YARA artifacts as inputs.</div>
+        <div class="tags">
+          <span class="tag">LLM evaluation</span>
+          <span class="tag">security tooling</span>
+          <span class="tag">benchmark design</span>
           <span class="tag">Python</span>
         </div>
       </li>
 
       <li>
-        <div class="project-name">MCP Scanner</div>
-        <div class="project-desc">Open-source security scanner for MCP servers.</div>
-        <div class="tags">
-          <span class="tag">MCP</span>
-          <span class="tag">Security</span>
-          <span class="tag">Open Source</span>
-        </div>
-      </li>
-
-      <li>
         <div class="project-name">
-          <a href="https://github.com/pavjstn-ui/white-rabbit" target="_blank" rel="noopener">White Rabbit</a>
+          agent-loop
+          <a class="gh-link" href="https://github.com/pavjstn-ui" target="_blank" rel="noopener">↗ github</a>
         </div>
-        <div class="project-desc">Research paper: agentic behavioral drift detection. arXiv track.</div>
+        <div class="project-desc">Autonomous coding agent that runs jobs without you — goal decomposition → Kafka job queue → LLM execution → reviewer gate → commit.</div>
         <div class="tags">
-          <span class="tag">Research</span>
-          <span class="tag">Agentic AI</span>
-          <span class="tag">arXiv</span>
+          <span class="tag">Kafka KRaft</span>
+          <span class="tag">Python</span>
+          <span class="tag">LLM orchestration</span>
+          <span class="tag">AI infrastructure</span>
+          <span class="tag">ChromaDB</span>
         </div>
       </li>
 
       <li>
-        <div class="project-name">Slovak LLM</div>
-        <div class="project-desc">Qwen3-8B fine-tuned for Slovak/Czech with LoRA and an adversarial prompt corpus.</div>
+        <div class="project-name">claude-memory</div>
+        <div class="project-desc">Semantic memory layer across all projects — ingest markdown, chunk, embed, store in ChromaDB, query via REST and MCP.</div>
         <div class="tags">
-          <span class="tag">LoRA</span>
-          <span class="tag">PEFT</span>
-          <span class="tag">Qwen3-8B</span>
-          <span class="tag">Adversarial NLP</span>
+          <span class="tag">RAG</span>
+          <span class="tag">ChromaDB</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">embeddings</span>
+          <span class="tag">MCP</span>
         </div>
       </li>
 
     </ul>
   </section>
 
-  <section>
-    <h2>Skills</h2>
-    <div class="skills-line">
-      Python<span>·</span>PyTorch<span>·</span>LangGraph<span>·</span>FastAPI<span>·</span>GCP<span>·</span>Docker<span>·</span>MLflow<span>·</span>YARA<span>·</span>MITRE ATT&amp;CK
-    </div>
+  <section id="writing">
+    <h2>Writing</h2>
+    <ul class="writing-list">
+
+      <li>
+        <div class="writing-title">
+          CascadeBench — prompt injection propagation across multi-turn agent trajectories
+          <span class="badge">forthcoming</span>
+        </div>
+        <div class="writing-meta">arXiv preprint</div>
+      </li>
+
+      <li>
+        <div class="writing-title">
+          <a href="https://doi.org/10.5281/zenodo.21834704" target="_blank" rel="noopener">OutputGuard: Article 9 Evidence Artifacts for LLM Output Filtering</a>
+        </div>
+        <div class="writing-meta">
+          Zenodo preprint ·
+          <a href="https://doi.org/10.5281/zenodo.21834704" target="_blank" rel="noopener">DOI 10.5281/zenodo.21834704</a>
+        </div>
+      </li>
+
+    </ul>
   </section>
 
-  <section class="currently">
-    <h2>Currently</h2>
+  <section id="contact">
+    <h2>Contact</h2>
     <p>
-      <strong>Building</strong> White Rabbit (arXiv) ·
-      <strong>Relocating</strong> to Prague Aug 2026 ·
-      <strong>Open to</strong> hands-on AI/ML security roles
+      <a href="mailto:pjstn@proton.me">pjstn@proton.me</a><br>
+      <a href="https://github.com/pavjstn-ui" target="_blank" rel="noopener">github.com/pavjstn-ui</a>
     </p>
   </section>
+
+</main>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+</script>
 
 </body>
 </html>
