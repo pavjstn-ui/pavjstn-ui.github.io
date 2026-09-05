@@ -10,7 +10,7 @@ updated: 2026-09-05
 Date: 2026-09-05 | Status: phase-e complete | Tasks done: 1 | failed: 0
 
 ## Goal
-run kit r for next task cycle
+Add README.md if missing, document what the site is
 
 ## What's broken or missing
 - none
