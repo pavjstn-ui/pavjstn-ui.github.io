@@ -1,7 +1,7 @@
 ---
 project: pavjust-site
 priority: HIGH
-next: run kit r for next task cycle
+next: Fix the pavjust-site HTML: ensure the single-page CV renders correctly in a browser and the GitHub Pages deploy action passes
 blocker: task c0a26b68 FAILED: Update the 'Status' field to 'phase-e running', change 'Tasks done' to 0, and ad
 updated: 2026-09-06
 ---
@@ -10,7 +10,7 @@ updated: 2026-09-06
 Date: 2026-09-06 | Status: phase-e complete | Tasks done: 0 | failed: 1
 
 ## Goal
-run kit r for next task cycle
+Fix the pavjust-site HTML: ensure the single-page CV renders correctly in a browser and the GitHub Pages deploy action passes
 
 ## What's broken or missing
 - task c0a26b68 FAILED: Update the 'Status' field to 'phase-e running', change 'Tasks done' to 0, and ad
