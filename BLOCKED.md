@@ -1,13 +1,12 @@
 # BLOCKED
 
 **Goal:** Fix the pavjust-site HTML: ensure the single-page CV renders correctly in a browser and the GitHub Pages deploy action passes
-**Date:** 2026-09-12T06:24:18+00:00
-**Failed tasks:** 3 / 3
+**Date:** 2026-09-13T02:39:12+00:00
+**Failed tasks:** 2 / 2
 
 ## Failed tasks
-- [39f1f117] Correct any mistakes in the code related to render correctness or CI build failure, preserving style and structure; if u
-- [b7213699] Correct any mistakes in the code related to render correctness or CI build failure, preserving style and structure; if u
-- [7106e70f] Correct any mistakes in the code related to render correctness or CI build failure, preserving style and structure; if u
+- [416b2046] Update the 'What's broken or missing' section to list specific defects if they are identified upon inspection, or confir — Error code: 429 - {'error': {'message': 'Your account org-e663a55cfb234c5fae4f06
+- [fa051bbf] Verify that the instructions for building or viewing the website accurately reflect the single-page CV structure and any — Error code: 429 - {'error': {'message': 'Your account org-e663a55cfb234c5fae4f06
 
 ## What to do
 Review failed tasks above. Fix blockers manually or re-queue with a revised goal.
