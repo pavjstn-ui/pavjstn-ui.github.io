@@ -1,14 +1,14 @@
 # BLOCKED
 
 **Goal:** Fix the pavjust-site HTML: ensure the single-page CV renders correctly in a browser and the GitHub Pages deploy action passes
-**Date:** 2026-09-18T02:26:29+00:00
+**Date:** 2026-09-18T08:33:53+00:00
 **Failed tasks:** 4 / 4
 
 ## Failed tasks
-- [afb4de97] Remove specific task references and blockers for ID 285a27e8 and 6b632720 to resolve external dependency constraints and — Error code: 429 - {'error': {'message': 'Your account org-e663a55cfb234c5fae4f06
-- [ea0436f6] Add a formal record documenting the architectural choice to proceed with the static single-page CV implementation in pla — Error code: 429 - {'error': {'message': 'Your account org-e663a55cfb234c5fae4f06
-- [2c2ba399] Update the project status header to set status to 'in-progress', reset the failed tasks count to zero, and rewrite the ' — Error code: 429 - {'error': {'message': 'Your account org-e663a55cfb234c5fae4f06
-- [8025d0db] Correct all instance of placeholder 'http://...' URLs to the verified production domain for the live GitHub Pages site a — Error code: 429 - {'error': {'message': 'Your account org-e663a55cfb234c5fae4f06
+- [8bfd32c9] Update the blocked task 8025d0db to reflect that the goal is to verify and replace placeholder URLs, and ensure the bloc — Error code: 429 - {'error': {'message': 'Your account org-e663a55cfb234c5fae4f06
+- [1ca2fb64] Update the 'Current State' and 'Next Steps' sections to reflect that the project is active and focuses on fixing the sin — Error code: 429 - {'error': {'message': 'Your account org-e663a55cfb234c5fae4f06
+- [fdefc400] Ensure that the design specifications for the single-page CV are clear and complete, providing the necessary details for — Error code: 429 - {'error': {'message': 'Your account org-e663a55cfb234c5fae4f06
+- [828d5b0c] Replace all placeholder URLs such as 'http://...' with verified production URLs to ensure the CV renders correctly in th — Error code: 429 - {'error': {'message': 'Your account org-e663a55cfb234c5fae4f06
 
 ## What to do
 Review failed tasks above. Fix blockers manually or re-queue with a revised goal.
