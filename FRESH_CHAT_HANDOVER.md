@@ -2,7 +2,7 @@
 project: pavjust-site
 priority: HIGH
 next: Fix the pavjust-site HTML: ensure the single-page CV renders correctly in a browser and the GitHub Pages deploy action passes
-blocker: task 8025d0db FAILED: Correct all instance of placeholder 'http://...' URLs to the verified production
+blocker: task 828d5b0c FAILED: Replace all placeholder URLs such as 'http://...' with verified production URLs 
 updated: 2026-09-18
 ---
 
@@ -13,7 +13,7 @@ Date: 2026-09-18 | Status: phase-e complete | Tasks done: 0 | failed: 4
 Fix the pavjust-site HTML: ensure the single-page CV renders correctly in a browser and the GitHub Pages deploy action passes
 
 ## What's broken or missing
-- task afb4de97 FAILED: Remove specific task references and blockers for ID 285a27e8 and 6b632720 to res
-- task ea0436f6 FAILED: Add a formal record documenting the architectural choice to proceed with the sta
-- task 2c2ba399 FAILED: Update the project status header to set status to 'in-progress', reset the faile
-- task 8025d0db FAILED: Correct all instance of placeholder 'http://...' URLs to the verified production
+- task 8bfd32c9 FAILED: Update the blocked task 8025d0db to reflect that the goal is to verify and repla
+- task 1ca2fb64 FAILED: Update the 'Current State' and 'Next Steps' sections to reflect that the project
+- task fdefc400 FAILED: Ensure that the design specifications for the single-page CV are clear and compl
+- task 828d5b0c FAILED: Replace all placeholder URLs such as 'http://...' with verified production URLs 
